@@ -4,6 +4,7 @@
     import SearchIcon from '@material-ui/icons/Search';
     import Button from '@material-ui/core/Button';
     import {useNavigate} from 'react-router-dom';
+    
 
     function Search({hideButtons = false}) {
         const[input, setInput] = useState('');
