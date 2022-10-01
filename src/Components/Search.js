@@ -4,27 +4,37 @@
     import SearchIcon from '@material-ui/icons/Search';
     import Button from '@material-ui/core/Button';
     import {useNavigate} from 'react-router-dom';
-    
+    import {useStateValue} from '../StateProvider'
 
     function Search({hideButtons = false}) {
-        const[input, setInput] = useState('');
         const navigate = useNavigate();
-        
-        const searchPage = (e) => {
-            e.preventDefault();
+        const {state, dispatch} = useStateValue()
 
-            console.log('You hit the search button >>', input);
+        const handleChange = (e) => {
+            dispatch({type: 'SET_SEARCH_TERM', term: e.target.value})
+        }
+        
+        const searchPage = () => {
+            console.log('You hit the search button >>', state.term);
 
             //do something with input.....come back to this
             
-            navigate('/search');
+            navigate('/search', {state: state});
         }
     return (
         <form className='search'>
         <div className='search__input'>
          
          <SearchIcon  className="search__inputIcon"/>
-         <input value={input} onChange={e => setInput(e.target.value)}/>
+         <input 
+            value={state.term} 
+            onChange={handleChange}
+            onKeyDown={e => {
+                if(e.key === 'Enter'){
+                    searchPage()
+                }
+            }}    
+        />
          <MicIcon />
 
         </div> 
