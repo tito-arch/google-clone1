@@ -5,21 +5,29 @@
     import Button from '@material-ui/core/Button';
     import {useNavigate} from 'react-router-dom';
     import {useStateValue} from '../StateProvider'
+    import actionTypes from '../reducer';
 
     function Search({hideButtons = false}) {
-        const navigate = useNavigate();
-        const {state, dispatch} = useStateValue()
-
-        const handleChange = (e) => {
-            dispatch({type: 'SET_SEARCH_TERM', term: e.target.value})
-        }
         
-        const searchPage = () => {
-            console.log('You hit the search button >>', state.term);
+        const { dispatch} = useStateValue()
+        const [input, setInput] = useState('');
 
+        const navigate = useNavigate();
+
+        
+        
+        const searchPage = (e) => {
+            e.preventDefault();
+
+            console.log('You hit the search button >>');
+
+            dispatch ({
+                type: actionTypes.SET_SEARCH_TERM,
+                term: input
+            })
             //do something with input.....come back to this
             
-            navigate('/search', {state: state});
+            navigate('/search');
         }
     return (
         <form className='search'>
@@ -27,13 +35,7 @@
          
          <SearchIcon  className="search__inputIcon"/>
          <input 
-            value={state.term} 
-            onChange={handleChange}
-            onKeyDown={e => {
-                if(e.key === 'Enter'){
-                    searchPage()
-                }
-            }}    
+           value={input} onChange={e => setInput(e.target.value)} 
         />
          <MicIcon />
 
