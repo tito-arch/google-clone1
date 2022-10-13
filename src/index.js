@@ -6,12 +6,10 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reducer, { initialState} from './reducer';
 import {StateProvider} from './StateProvider';
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <StateProvider initialState={initialState} newState={reducer}>
+    <StateProvider initialState={initialState} reducer={reducer}>
      <App />
     </StateProvider> 
     

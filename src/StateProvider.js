@@ -7,7 +7,7 @@ import React, {createContext, useContext, useReducer} from 'react';
 export const StateContext = createContext();
 
  export const StateProvider = ({reducer, initialState, children}) => {
-    const newState = useReducer(reducer, initialState);
+    const [state, dispatch] = useReducer(reducer, initialState);
      //passed two things the reducer and the initial state
      //the children is the app
      //the reducer is the function that listens to the changes in the data layer
@@ -16,7 +16,7 @@ export const StateContext = createContext();
      //the value is the data layer
      return (
 
-        <StateContext.Provider value={newState}>
+        <StateContext.Provider value={{state, dispatch}}>
             {children}
         </StateContext.Provider>
      );
@@ -24,4 +24,4 @@ export const StateContext = createContext();
 
 
 //Hook which allows us to pull information from the data layer
-    export const useStateValue = () => useContext(StateContext);
+export const useStateValue = () => useContext(StateContext);
