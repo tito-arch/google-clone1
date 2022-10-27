@@ -1,5 +1,5 @@
 export const initialState = {
-    term: 'elon musk',
+    term: ' ',
 };
 //this is where the data layer is created it is the search term eg "bunnieabc.com" which is initially null
 
