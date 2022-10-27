@@ -7,14 +7,13 @@ import useGoogleSearch from '../useGoogleSearch';
 function SearchPage() {
     const location = useLocation();
     const {state} = useStateValue();
-    const {data} = useGoogleSearch(state.term);
-    console.log(data);
+    const {data} = useGoogleSearch();
+    console.log(state);
 
 
     return (
         <div>
             <p> From reducer - {state.term}</p>
-            <p> From location - {location.state.term}</p>
             
            
         </div>
