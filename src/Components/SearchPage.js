@@ -13,8 +13,10 @@ function SearchPage() {
 
     return (
         <div>
-            {/*<p> From reducer - {state.term}</p>*/}
-             <h1>{location.state.term}</h1>
+            <p> From reducer - {state.term}</p>
+            <p> From location - {location.state.term}</p>
+            
+           
         </div>
     )
 }
