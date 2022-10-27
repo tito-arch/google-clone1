@@ -30,7 +30,7 @@
             navigate('/search');
         }
     return (
-        <form className='search'>
+        <form className='search' onSubmit={searchPage}>
         <div className='search__input'>
          
          <SearchIcon  className="search__inputIcon"/>
@@ -41,6 +41,8 @@
 
         </div> 
       
+      {/**/}
+
       {!hideButtons &&(
       
       <div className='search__buttons'>
