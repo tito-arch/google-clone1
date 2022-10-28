@@ -13,7 +13,7 @@ function SearchPage() {
 
     return (
         <div>
-            <p> From reducer - {state.term}</p>
+            <p> From reducer {state.term}</p>
             
            
         </div>
