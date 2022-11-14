@@ -18,8 +18,8 @@ function Home() {
         </div>
 
         <div className='home__headerRight'>
-          <Link to='/about'>GMail</Link>
-          <Link to='/about'>Images</Link>
+          <Link to='/gmail'>GMail</Link>
+          <Link to='/images'>Images</Link>
           <AppsIcon />
           <Avatar />
         </div>
@@ -31,7 +31,7 @@ function Home() {
       </div>
 
       <div className="home__inputContainer">
-        <Search hideButtons/>
+        <Search />
       </div>
 
       
